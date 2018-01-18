@@ -1,15 +1,45 @@
 <template>
   <div class="bottom-nav" v-once>
     <ul>
-      <li class="active"><a href="#"><i class="icon-home"></i><div>有赞</div></a></li>
-      <li><a href=""><i class="icon-category"></i><div>分类</div></a></li>
-      <li><a href=""><i class="icon-cart"></i><div>购物车</div></a></li>
-      <li><a href=""><i class="icon-user"></i><div>我</div></a></li>
+      <li 
+        v-for="(item,index) in navConfig" :key="item.id"
+        :class = "{active:index == curIndex}"
+        ><a :href="item.href.concat('?index=',index)"><i :class="item.icon"></i><div>{{item.name}}</div></a></li>
     </ul>
   </div> 
 </template>
 
 <script>
+  const navConfig = [{
+    name: '首页',
+    icon: 'icon-home',
+    href: 'index.html',
+    id:0,
+  },{
+    name: '分类',
+    icon: 'icon-category',
+    href: 'category.html',
+    id:1,
+  },{
+    name: '购物车',
+    icon: 'icon-cart',
+    href: 'cart.html',
+    id:2,
+  },{
+    name: '我',
+    icon: 'icon-user',
+    href: 'member.html',
+    id:3,
+  }]
+
+  export default {
+    data() {
+      return {
+        navConfig,
+        curIndex: location.search.replace(/^(index=\d)/).substr(-1) || 0,
+      }
+    },
+  }
 </script>
 
 <style>
