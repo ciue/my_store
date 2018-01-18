@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html class="no-js " lang="zh-CN">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <link rel="dns-prefetch" href="https://dn-kdt-img.qbox.me/">
+  <link rel="dns-prefetch" href="https://img.yzcdn.cn/">
+  <link rel="dns-prefetch" href="https://b.yzcdn.cn/">
+  <link rel="dns-prefetch" href="https://su.yzcdn.cn/">
+  <link rel="dns-prefetch" href="https://h5.youzan.com/v2/">
+  <link rel="dns-prefetch" href="https://h5.youzan.com/">
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="cleartype" content="on">
+  <link rel="shortcut icon" href="https://b.yzcdn.cn/v2/image/yz_fc.ico">
+  <title>分类</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+</head>
+
+<body class=" ">
+  <div id="app">
+    <div class="container with-bottom-nav">
+      <div class="custom-search js-search-bar">
+        <form>
+          <input type="search" class="custom-search-input" autocomplete="off" name="keyword" value="" placeholder="搜索更赞的商品">
+          <span class="icon-custom-search"></span>
+        </form>
+        <button class="custom-search-type-selection-btn">商品</button>
+        <span class="cancel">取消</span>
+        <div class="search-type-dropdown-menu" style="display: none;">
+          <span class="search-type-dropdown-menu-indicator">
+            <i></i>
+          </span>
+          <div class="drop-menu-content">
+            <div class="search-type-goods">
+              <i class="icon-goods"></i>
+              <span>商品</span>
+            </div>
+            <div class="search-type-dropdown-menu-divider"></div>
+            <div class="search-type-shop">
+              <i class="icon-shop"></i>
+              <span>店铺</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="search-content" style="display: none;"></div>
+      <div class="content" >
+        <div class="class-nav">
+          <div id="scroll-nav" style="height: 100%;" >
+            <ul class="nav" id="scroll-nav-content">
+              <li class="category-name js-category-name" data-cid="-1"
+              v-for="(item, index) in rootLists"
+              @click="getSubLists(index,item.id)"
+              :class="{active:index==rootIndex}" 
+              >{{item.name}}</li>
+            </ul>
+          </div>
+        </div>
+        <div class="class-category">
+          <div id="scroll-main-wrap" class="main-content">
+            <div id="scroll-main-content" class="js-main-content inner-content"  v-if="rootIndex == 0">
+              <div class="hot-wrap">
+                <div class="hot-goods">
+                  <div class="hot-title">
+                    <p class="pull-left">热销商品榜</p>
+                    <a href="https://maijia.youzan.com/mars/rank/hotgoods" class="pull-right icon-right">更多</a>
+                  </div>
+                  <ul>
+                    <li class="goods-item"
+                      v-for="(item, index) in rankLists.hotGoods" :key="item.id">
+                      <a href="">
+                        <div class="thumb badge center-img">
+                          <img :src="item.img">
+                          <span class="num">{{index+1}}</span>
+                        </div>
+                        <div class="detail">
+                          <div class="title">{{item.name}}</div>
+                          <div class="price">￥139.00</div>
+                          <div class="recommend">
+                            <span>推荐值:</span>
+                            <span>{{item.recommend}}</span>
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="hot-shops" style="position: relative;">
+                  <div class="hot-title">
+                    <p class="pull-left">TOP店铺榜</p>
+                    <a href="" class="pull-right icon-right">更多</a>
+                  </div>
+                  <ul>
+                    <li class="shop-item" v-for="item in rankLists.hotShops">
+                      <div class="shop-title">
+                        <span class="badge">1</span>
+                        <a href="">{{item.name}}</a>
+                        <span class="follows"> / 关注度: {{item.follows}}</span>
+                      </div>
+                      <ul class="shop-images">
+                        <li>
+                          <a href="">
+                            <img :src="item.img">
+                          </a>
+                        </li>
+                        <li>
+                          <a href="">
+                            <img :src="item.img">
+                          </a>
+                        </li>
+                        <li>
+                          <a href="">
+                            <img  :src="item.img">
+                          </a>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+                <div class="hot-keywords">
+                  <div class="hot-title">
+                    <p class="pull-left">热搜词排行</p>
+                  </div>
+                  <ul class="keywords-list">
+                    <li v-for="item in rankLists.hotKeywords">
+                      <a href="javascript:;" class="js-hot-keyword">{{item.name}}</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div id="scroll-main-content" class="js-main-content inner-content"
+              v-else>
+              <h3 class="category-title">热门品牌 </h3>
+              <ul class="category-content">
+                <li 
+                  v-for="item in subLists.brandLists"
+                  class="category-item js-category-item" 
+                  :data-item-id="item.id" 
+                  :data-item-name="item.name">
+                  <img :src="item.img" :alt="item.name" class="category-img">
+                  <span class="category-item-name">
+                    {{item.name}} </span>
+                </li>
+              </ul>
+              <h3 class="category-title"> 热门分类 </h3>
+              <ul class="category-content">
+                <li 
+                  v-for="item in subLists.categoryLists"
+                  class="category-item js-category-item" 
+                  :data-item-id="item.id" 
+                  :data-item-name="item.name">
+                  <img :src="item.img" :alt="item.name" class="category-img">
+                  <span class="category-item-name">{{item.name}}</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <Footnav></Footnav>
+  </div>
+</body>
+
+</html>
