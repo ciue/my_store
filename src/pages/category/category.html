@@ -48,21 +48,18 @@
         </div>
       </div>
       <div class="search-content" style="display: none;"></div>
-      <div class="content" >
+      <div class="content">
         <div class="class-nav">
-          <div id="scroll-nav" style="height: 100%;" >
+          <div id="scroll-nav" style="height: 100%;">
             <ul class="nav" id="scroll-nav-content">
-              <li class="category-name js-category-name" data-cid="-1"
-              v-for="(item, index) in rootLists"
-              @click="getSubLists(index,item.id)"
-              :class="{active:index==rootIndex}" 
-              >{{item.name}}</li>
+              <li class="category-name js-category-name" data-cid="-1" v-for="(item, index) in rootLists" @click="getSubLists(index,item.id)"
+                :class="{active:index==rootIndex}">{{item.name}}</li>
             </ul>
           </div>
         </div>
         <div class="class-category">
           <div id="scroll-main-wrap" class="main-content">
-            <div id="scroll-main-content" class="js-main-content inner-content"  v-if="rootIndex == 0">
+            <div id="scroll-main-content" class="js-main-content inner-content" v-if="rootIndex == 0">
               <div class="hot-wrap">
                 <div class="hot-goods">
                   <div class="hot-title">
@@ -70,8 +67,7 @@
                     <a href="https://maijia.youzan.com/mars/rank/hotgoods" class="pull-right icon-right">更多</a>
                   </div>
                   <ul>
-                    <li class="goods-item"
-                      v-for="(item, index) in rankLists.hotGoods" :key="item.id">
+                    <li class="goods-item" v-for="(item, index) in rankLists.hotGoods" :key="item.id">
                       <a href="">
                         <div class="thumb badge center-img">
                           <img :src="item.img">
@@ -114,7 +110,7 @@
                         </li>
                         <li>
                           <a href="">
-                            <img  :src="item.img">
+                            <img :src="item.img">
                           </a>
                         </li>
                       </ul>
@@ -133,15 +129,15 @@
                 </div>
               </div>
             </div>
-            <div id="scroll-main-content" class="js-main-content inner-content"
-              v-else>
+            <div id="scroll-main-content" class="js-main-content inner-content" v-else>
               <h3 class="category-title">热门品牌 </h3>
               <ul class="category-content">
                 <li 
-                  v-for="item in subLists.brandLists"
+                  v-for="item in subLists.brandLists" 
                   class="category-item js-category-item" 
                   :data-item-id="item.id" 
-                  :data-item-name="item.name">
+                  :data-item-name="item.name"
+                  @click="toSearch(item)">
                   <img :src="item.img" :alt="item.name" class="category-img">
                   <span class="category-item-name">
                     {{item.name}} </span>
@@ -149,11 +145,7 @@
               </ul>
               <h3 class="category-title"> 热门分类 </h3>
               <ul class="category-content">
-                <li 
-                  v-for="item in subLists.categoryLists"
-                  class="category-item js-category-item" 
-                  :data-item-id="item.id" 
-                  :data-item-name="item.name">
+                <li v-for="item in subLists.categoryLists" class="category-item js-category-item" :data-item-id="item.id" :data-item-name="item.name">
                   <img :src="item.img" :alt="item.name" class="category-img">
                   <span class="category-item-name">{{item.name}}</span>
                 </li>

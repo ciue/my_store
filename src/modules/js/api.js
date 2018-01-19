@@ -3,7 +3,8 @@ const url = {
   carousel:'/index/carousel',
   rootlists:'/category/rootlists',
   rankData:'/category/rank',
-  sublists:'/category/sublists'
+  sublists:'/category/sublists',
+  searchLists: '/search/lists'
 };
 const host = 'http://rap2api.taobao.org/app/mock/3756/GET/';
 

@@ -8,6 +8,7 @@ import url from 'js/api.js';
 import { InfiniteScroll } from 'mint-ui';
 
 import Footnav from 'components/FootNav.vue';
+import mixin from 'js/mixin.js';
 import Swiper from 'components/swiper.vue';
 
 Vue.use(InfiniteScroll);
@@ -25,14 +26,14 @@ const app = new Vue({
 
   created() {
     this.getHotLists();
-    this.getCarousel()
+    this.getCarousel();
   },
 
   methods: {
     getHotLists() {
       if (this.allLoaded) return;
       this.loading = true;
-      axios.post(url.hotlist, {
+      axios.get(url.hotlist, {
         pageNum: this.pageNum,
         pageSize: this.pageSize,
       }).then((r) => {
@@ -48,14 +49,17 @@ const app = new Vue({
       });
     },
     getCarousel() {
-      axios.get(url.carousel).then(res => {
-        this.carouselLists = res.data.lists
-      })
-    }
+      axios.get(url.carousel).then((res) => {
+        this.carouselLists = res.data.lists;
+      });
+    },
   },
 
   components: {
     Footnav,
     Swiper,
   },
+
+  mixins: [mixin],
+
 });
