@@ -4,7 +4,9 @@ const url = {
   rootlists:'/category/rootlists',
   rankData:'/category/rank',
   sublists:'/category/sublists',
-  searchLists: '/search/lists'
+  searchLists: '/search/lists',
+  gooddetails: 'goods/details',
+  dealLists:'/goods/deal',
 };
 const host = 'http://rap2api.taobao.org/app/mock/3756/GET/';
 

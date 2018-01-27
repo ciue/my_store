@@ -64,11 +64,11 @@
                 <div class="hot-goods">
                   <div class="hot-title">
                     <p class="pull-left">热销商品榜</p>
-                    <a href="https://maijia.youzan.com/mars/rank/hotgoods" class="pull-right icon-right">更多</a>
+                    <a href="" class="pull-right icon-right">更多</a>
                   </div>
                   <ul>
                     <li class="goods-item" v-for="(item, index) in rankLists.hotGoods" :key="item.id">
-                      <a href="">
+                      <a :href="'goods.html?id='+item.id">
                         <div class="thumb badge center-img">
                           <img :src="item.img">
                           <span class="num">{{index+1}}</span>

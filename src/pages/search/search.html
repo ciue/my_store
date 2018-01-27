@@ -58,7 +58,7 @@
           >
           <li class="goods-item"
             v-for="item in goodsLists">
-            <a href="">
+            <a :href="'goods.html?id='+item.id">
               <div class="thumb">
                 <img :src="item.img">
                 <i v-if="item.isOut" class="sell-out"></i>
