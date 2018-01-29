@@ -13,8 +13,18 @@ import mixin from 'js/mixin.js';
 
 import Swiper from 'components/swiper.vue';
 
-let id = location
+function getQueryStr(str) {
+  const obj = {};
+  const r = str.substr(1).split('&');
+  for (const v of r) {
+    const key = v.split('=')[0];
+    const value = v.split('=')[1];
+    obj[key] = value;
+  }
+  return obj;
+}
 
+let {id} = getQueryStr(location.search)
 
 let tab = ['商品详情', '本店成交']
 new Vue({
@@ -22,13 +32,14 @@ new Vue({
   data: {
     details: null,
     dealLists: null,
-    tab,
+    tab:tab,
     tabIndex: null,
     goodsImgs: [],
     skuType: null,
     showSku: false,
     skuNum: 1,
-    isadd: false,
+    isAdded: false,
+    id:id,
   },
 
   created() {
@@ -37,7 +48,6 @@ new Vue({
 
   methods: {
     getData() {
-      console.log(url.gooddetails);
       axios.get(url.gooddetails).then(res => {
         this.details = res.data
         this.details.imgs.forEach(element => {
@@ -59,8 +69,8 @@ new Vue({
       })
     },
     chooseSku(type) {
-      this.skuType = type
-      this.showSku = true
+      this.skuType = type;
+      this.showSku = true;
     },
     changeSkuNum(i) {
       if (i === 0 & this.skuNum === 1) return;
@@ -68,7 +78,7 @@ new Vue({
     },
     addCart() {
       axios.post(url.addCart, {
-        id,
+        id: id,
         number: this.skuNum
       }).then(res => {
         if (res.data.status === 200) {
@@ -76,13 +86,18 @@ new Vue({
           this.showSku = false
         }
       })
+    },
+    blur() {
+      if(this.skuNum) return;
+      if(!this.skuNum) this.skuNum =1;
     }
   },
   watch: {
     showSku(val, oldVal) {
       document.body.style.overflow = val ? 'hidden' : 'auto';
       document.querySelector('html').style.overflow = val ? 'hidden' : 'auto';
-    }
+    },
+
   },
   components: {
     Swiper,
