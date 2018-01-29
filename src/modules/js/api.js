@@ -7,6 +7,7 @@ const url = {
   searchLists: '/search/lists',
   gooddetails: 'goods/details',
   dealLists:'/goods/deal',
+  addCart: '/cart/add'
 };
 const host = 'http://rap2api.taobao.org/app/mock/3756/GET/';
 

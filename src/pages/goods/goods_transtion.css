@@ -1,0 +1,8 @@
+.show-enter-active, .show-leave-acive {
+  transform: translateY(0);
+  transition: all 500ms;
+}
+
+.show-enter,.show-leave-to {
+  transform: translateY(100%);
+}
