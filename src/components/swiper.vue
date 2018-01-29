@@ -25,21 +25,16 @@ export default {
     name: {}
   },
 
-  created() {
-    console.log("created:", document.querySelectorAll(".swiper-slide"));
-  },
-
   mounted() {
-    console.log("mounted: ", document.querySelectorAll(".swiper-slide"));
     new Swiper(".swiper-container", {
       loop: true,
       autoplay: {
-        delay: 2000,
+        delay: 2000
       },
       pagination: {
-        el: '.swiper-pagination',
-        dynamicBullets: true,
-      },
+        el: ".swiper-pagination",
+        dynamicBullets: true
+      }
     });
   }
 };
@@ -47,7 +42,7 @@ export default {
 
 
 <style>
-.swiper-slide img{
+.swiper-slide img {
   width: 100%;
   height: 100%;
 }
