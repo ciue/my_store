@@ -33,13 +33,14 @@ new Vue({
     details: null,
     dealLists: null,
     tab:tab,
-    tabIndex: null,
+    tabIndex: 0,
     goodsImgs: [],
     skuType: null,
     showSku: false,
     skuNum: 1,
     isAdded: false,
     id:id,
+    priceIntro: false,
   },
 
   created() {
@@ -90,6 +91,10 @@ new Vue({
     blur() {
       if(this.skuNum) return;
       if(!this.skuNum) this.skuNum =1;
+    },
+    changePirceIntro() {
+      console.log('FUCK');
+      this.priceIntro = !this.priceIntro;
     }
   },
   watch: {

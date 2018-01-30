@@ -3289,8 +3289,9 @@ only screen and (min-device-pixel-ratio: 1.5) {
 }
 
 .price-intro {
-  height: 44px;
-  overflow: hidden;
+  position: relative;
+  /* height: 44px; */
+  /* overflow: hidden; */
   padding-left: 15px;
   border-bottom: 1px solid #eee;
   background-color: #fff
@@ -3301,6 +3302,7 @@ only screen and (min-device-pixel-ratio: 1.5) {
 }
 
 .price-intro.js-unfold>h4 {
+  height: 44px;
   border-bottom: 1px solid #eee
 }
 
