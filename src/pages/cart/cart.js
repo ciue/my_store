@@ -72,7 +72,7 @@ new Vue({
       // 校验是否为合法值
       console.log(!/^[1-9][0-9]*$/.test(e.target.value));
       if (!/^[1-9][0-9]*$/.test(e.target.value)) {
-        e.target.value = 1;
+        good.number = 1;
         return
       }
       // 编辑商品数量
