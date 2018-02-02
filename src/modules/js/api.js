@@ -7,9 +7,10 @@ const url = {
   searchLists: '/search/lists',
   gooddetails: 'goods/details',
   dealLists:'/goods/deal',
-  addCart: '/cart/add',
   cartLists: '/cart/lists',
+  addCart: '/cart/add',
   cartReduce: '/cart/reduce',
+  changeNum: '/cart/changeNum',
   cartRemove: '/cart/remove',
   cartMremove: '/cart/mremove'
 };
