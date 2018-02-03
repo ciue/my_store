@@ -34,7 +34,8 @@
                 </div>
                 <div>
                   <ul class="js-list block block-list block-list-cart border-0">
-                    <li class="block-item block-item-cart" :class="{editing:shop.editable}"  v-for="(good,goodIndex) in shop.goodList" :key="good.id">
+                    <li class="block-item block-item-cart" :class="{editing:shop.editable}"  v-for="(good,goodIndex) in shop.goodList" :key="good.id"
+                    v-swipeleft="left(good,goodIndex)">
                       <div>
                         <div class="check-container">
                           <span class="check" :class="{checked:isEditing?good.removeChecked:good.checked}" @click="selectGood(shop, good)"></span>

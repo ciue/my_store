@@ -7,6 +7,9 @@ import axios from 'axios';
 import mixin from 'js/mixin.js';
 import url from 'js/api.js';
 import cartService from 'js/cartService.js'
+import vueTouch from 'js/vueTouch.js'
+
+
 
 new Vue({
   el: '#app',
@@ -22,6 +25,11 @@ new Vue({
     this.getCartLists()
   },
   methods: {
+    // swipeleft(el) {
+    //   console.log('左滑');
+    //   // console.log(el);
+    //   // console.log(swipeleft);
+    // },
     getCartLists() {
       axios.post(url.cartLists).then(res => {
         let lists = res.data.cartLists;
@@ -108,8 +116,10 @@ new Vue({
       this.isEditing = false;
       this.editingShop = null;
     },
-
-  },
+    left() {
+      console.log('ai');
+    }
+   },
   computed: {
     allSelected: {
       get() {
@@ -160,9 +170,5 @@ new Vue({
     },
 
   },
-  mixins: [mixin]
+  mixins: [mixin],
 })
-
-// todos
-// 左滑删除 >Hammer.js
-
