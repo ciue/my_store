@@ -25,11 +25,6 @@ new Vue({
     this.getCartLists()
   },
   methods: {
-    // swipeleft(el) {
-    //   console.log('左滑');
-    //   // console.log(el);
-    //   // console.log(swipeleft);
-    // },
     getCartLists() {
       axios.post(url.cartLists).then(res => {
         let lists = res.data.cartLists;
