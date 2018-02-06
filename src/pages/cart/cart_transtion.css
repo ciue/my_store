@@ -1,0 +1,10 @@
+.swipe-enter-active,
+.swipe-leave-acive {
+    transition: opacity .5s;
+    transition: all 5s;
+}
+
+.swipe-enter,
+.swipe-leave-to {
+    opacity: 0;
+}
