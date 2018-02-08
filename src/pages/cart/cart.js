@@ -1,6 +1,7 @@
 import './cart_base.css';
 import './cart_trade.css';
 import './cart.css';
+import './cart_transtion.css'
 
 import Vue from 'vue';
 import axios from 'axios';

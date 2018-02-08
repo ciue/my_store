@@ -1,10 +1,14 @@
-.swipe-enter-active,
-.swipe-leave-acive {
-    transition: opacity .5s;
+.swipe-enter-move,
+.swipe-leave-move {
+    /* transition: opacity; */
+    opacity: 1;
     transition: all 5s;
+    background-color: blueviolet;
 }
 
 .swipe-enter,
 .swipe-leave-to {
     opacity: 0;
+    background-color: aqua;
 }
+
