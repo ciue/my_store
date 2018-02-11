@@ -21,10 +21,11 @@ let routes = [{
         component: all,
     }, {
         path: 'form',
-        component: form
+        component: require('./components/form').default
     }]
 }]
-
+console.log(require('./components/form'));
+console.log(form);
 // route 实例
 let router = new Router({
     routes
