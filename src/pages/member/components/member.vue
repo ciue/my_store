@@ -83,6 +83,13 @@
 </div>
 </template>
 
+<script>
+export default {
+
+}
+</script>
+
+
 <style scoped>
 @import './member.css';
 @import './member_base.css';

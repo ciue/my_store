@@ -12,7 +12,12 @@ const url = {
   cartReduce: '/cart/reduce',
   changeNum: '/cart/changeNum',
   cartRemove: '/cart/remove',
-  cartMremove: '/cart/mremove'
+  cartMremove: '/cart/mremove',
+  addressLists: '/address/lists',
+  addressAdd: '/address/add',
+  addressRemove: '/address/remove',
+  addressUpdate: '/address/update',
+  addressSetDefault: '/address/setDefault'
 };
 const host = 'http://rap2api.taobao.org/app/mock/3756/GET/';
 

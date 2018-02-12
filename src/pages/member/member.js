@@ -18,21 +18,25 @@ let routes = [{
         component: all,
     }, {
         path: 'all',
+        name: 'all',
         component: all,
     }, {
         path: 'form',
-        component: require('./components/form').default
+        name: 'form',
+        component: form
     }]
 }]
-console.log(require('./components/form'));
-console.log(form);
+
 // route 实例
 let router = new Router({
-    routes
+    routes,
 })
 
 // 找到挂载点、根组件的注入
 new Vue({
     el: '#app',
-    router
+    router,
+    mounted() {
+    }    
 })
+
