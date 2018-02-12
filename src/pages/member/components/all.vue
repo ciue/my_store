@@ -1,7 +1,7 @@
 <template>
 <div class="container " style="min-height: 597px;">
-  <div class="block-list address-list section section-first js-no-webview-block" v-for="(item,index) in lists" :key="index" :class="{'address-item-default':item.isDefault}">
-    <a class="block-item js-address-item address-item">
+  <div class="block-list address-list section section-first js-no-webview-block" v-for="(item,index) in lists" :key="index" >
+    <a class="block-item js-address-item address-item" :class="{'address-item-default':item.isDefault}">
       <div class="address-title">{{item.name}} {{item.tel}} </div>
       <p>{{item.provinceName}}{{item.cityname}}{{item.districtName}}{{item.address}} </p>
       <a class="address-edit" @click="toEdit(item)">修改</a>
