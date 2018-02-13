@@ -18,5 +18,5 @@ function vueTouch(el, type, binding, vnode) {
     let args = binding.value
     const callback = vnode.context[fnName]
     const af = new Hammer(el)
-    af.on(type,()=>callback(...args))
+    af.on(type, () => callback(...args))
 }

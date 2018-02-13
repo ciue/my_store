@@ -1,7 +1,7 @@
 <template>
     <div class="swiper-container">
         <div class="swiper-wrapper">
-            <div class="swp-page swiper-slide" v-for="item in lists">
+            <div class="swp-page swiper-slide" v-for="item in lists" :key="item.id">
               <a class="js-no-follow" :href="item.url">
                 <img class="goods-main-photo fadeIn" :src="item.img">
               </a>

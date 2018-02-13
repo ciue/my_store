@@ -36,7 +36,5 @@ let router = new Router({
 new Vue({
     el: '#app',
     router,
-    mounted() {
-    }    
+    mounted() {}
 })
-

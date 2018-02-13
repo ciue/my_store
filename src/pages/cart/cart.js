@@ -138,11 +138,11 @@ new Vue({
             good.editable = false
         },
         resetEdit() {
-          this.cartLists.forEach(shop => {
-            shop.goodList.forEach(item => {
-                item.editable = false
+            this.cartLists.forEach(shop => {
+                shop.goodList.forEach(item => {
+                    item.editable = false
+                })
             })
-        })
         }
     },
     computed: {

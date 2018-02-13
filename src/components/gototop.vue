@@ -2,11 +2,8 @@
 // 2.滚动的速度
 
 <template>
-    <div 
-    class="go-to-top" 
-    v-show="isShow" 
-    @click='goTop' 
-    ></div>
+<div class="go-to-top" v-show="isShow" @click='goTop'>
+</div>
 </template>
 
 <script>
