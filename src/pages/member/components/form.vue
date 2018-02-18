@@ -15,15 +15,15 @@
         <label>选择地区</label>
         <div class="select-group">
           <select v-model="provinceValue">
-            <option  :value="-1">{{'选择省份'}}</option>
+            <option :value="-1">{{'选择省份'}}</option>
             <option :value="province.value" v-for="province in addressData.list" :key="province.id">{{province.label}}</option>
             </select>
           <select v-model="cityValue">
-            <option :value="-1">{{'选择省份'}}</option>
+            <option :value="-1">{{'选择城市'}}</option>
             <option :value="city.value" v-for="city in cityLists" :key="city.id">{{city.label}}</option>
             </select>
           <select v-model="districtValue">
-              <option :value="-1">{{'选择省份'}}</option>
+              <option :value="-1">{{'选择县区'}}</option>
               <option :value="district.value" v-for="district in districtList" :key="district.id">{{district.label}}</option>
             </select>
         </div>
@@ -111,20 +111,18 @@ export default {
       this.cityLists = province.children;
       this.cityValue = -1;
       this.districtValue = -1;
-
+      
+      // 设置默认值
       if(this.type === 'edit' && this.isInitVal) {
         this.cityValue = parseInt(this.instance.cityValue)
+        this.districtValue = parseInt(this.instance.districtValue)
+        this.isInitVal = false
       }
     },
     cityValue(val) {
       if (val == -1) return;
       let city = this.cityLists.find(item => item.value == val);
       this.districtList = city.children;
-      this.districtValue = -1
-
-      if(this.type === 'edit' && this.isInitVal) {
-        this.districtValue = parseInt(this.instance.districtValue)
-      }
     }
   }
 };
