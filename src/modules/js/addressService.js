@@ -5,14 +5,14 @@ class Address {
     static lists() {
         return fetch(url.addressLists)
     }
-    static add(data) {
-        return fetch(url.addressAdd, data)
+    static add(inst) {
+        return fetch(url.addressAdd, inst)
     }
     static remove(id) {
         return fetch(url.addressRemove, id)
     }
-    static update(data) {
-        return fetch(url.addressUpdate, data)
+    static update(inst) {
+        return fetch(url.addressUpdate, inst)
     }
     static setDefault(id) {
         return fetch(url.addressSetDefault, )

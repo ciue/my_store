@@ -69,6 +69,12 @@ export default {
     };
   },
 
+  computed: {
+    lists() {
+      return this.$store.state.lists
+    }
+  },
+
   created() {
     if (this.type === "edit") {
       let ad = this.instance;
@@ -85,20 +91,21 @@ export default {
   methods: {
     save() {
       // todo: 非空 与 合法校验
-      let {name, tel, provinceValue, cityValue, districtValue, address} =this
-      let data = {name, tel, provinceValue, cityValue, districtValue, address}
-      if( this.type === 'add') Address.add(data).then( res => this.$router.go(-1) )
-      if( this.type === 'edit') Address.update(data).then( res => this.$router.go(-1) )
+      let {name, tel, provinceValue, cityValue, districtValue, address, id} = this
+      let inst = {name, tel, provinceValue, cityValue, districtValue, address, id}
+      // 新增或编辑地址
+      if( this.type === 'add') this.$store.dispatch('addInst',inst)
+      if( this.type === 'edit') this.$store.dispatch('updateInst',inst)
     },
     remove() {
       // todo: 定制确认弹框
       if(window.confirm('确认删除')) {
-        Address.remove(this.id).then(res =>this.$router.go(-1))
+        this.$store.dispatch('removeInst', this.id)
       }
     },
     setDefault() {
       if(window.confirm('设为默认收货地址')) {
-        Address.setDefault(this.id).then(res =>this.$router.go(-1))
+        this.$store.dispatch('setDefault', this.id)
       }
     }
   },
@@ -123,6 +130,12 @@ export default {
       if (val == -1) return;
       let city = this.cityLists.find(item => item.value == val);
       this.districtList = city.children;
+    },
+    lists:{
+      handler: function () {
+        this.$router.go(-1)
+      },
+      deep: true,
     }
   }
 };
