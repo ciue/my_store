@@ -1,21 +1,21 @@
-import fetch from 'js/fetch.js';
+import http from 'js/http.js';
 import url from 'js/api.js';
 
 class Address {
     static lists() {
-        return fetch(url.addressLists)
+        return http.get(url.addressLists)
     }
     static add(inst) {
-        return fetch(url.addressAdd, inst)
+        return http.get(url.addressAdd, inst)
     }
     static remove(id) {
-        return fetch(url.addressRemove, id)
+        return http.get(url.addressRemove, id)
     }
     static update(inst) {
-        return fetch(url.addressUpdate, inst)
+        return http.get(url.addressUpdate, inst)
     }
     static setDefault(id) {
-        return fetch(url.addressSetDefault, )
+        return http.get(url.addressSetDefault, )
     }
 }
 
