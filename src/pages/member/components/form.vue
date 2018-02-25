@@ -94,6 +94,7 @@ export default {
       let {name, tel, provinceValue, cityValue, districtValue, address, id} = this
       let inst = {name, tel, provinceValue, cityValue, districtValue, address, id}
       // 新增或编辑地址
+      console.log(inst);
       if( this.type === 'add') this.$store.dispatch('addInst',inst)
       if( this.type === 'edit') this.$store.dispatch('updateInst',inst)
     },

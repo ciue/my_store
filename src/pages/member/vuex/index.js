@@ -14,7 +14,7 @@ const store = new Vuex.Store({
     },
     add(state, inst) {
       // 假装后台传回了 inst
-      inst[id] = Math.floor(Math.random()*1000000)
+      inst.id = Math.floor(Math.random()*1000000)
       state.lists.push(inst)
     },
     remove(state, id) {
