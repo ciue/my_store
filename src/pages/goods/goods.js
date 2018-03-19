@@ -37,6 +37,7 @@ new Vue({
     goodsImgs: [],
     skuType: null,
     showSku: false,
+    showMotify: false,
     skuNum: 1,
     isAdded: false,
     id:id,
@@ -85,6 +86,10 @@ new Vue({
         if (res.data.status === 200) {
           //成功加入购物车
           this.showSku = false
+          this.showMotify = true
+          setTimeout(()=>{
+            this.showMotify = false
+          },800)
         }
       })
     },
