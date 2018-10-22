@@ -5,7 +5,7 @@ const url = {
     rankData: '/category/rank',
     sublists: '/category/sublists',
     searchLists: '/search/lists',
-    gooddetails: 'goods/details',
+    gooddetails: '/goods/details',
     dealLists: '/goods/deal',
     cartLists: '/cart/lists',
     addCart: '/cart/add',
@@ -19,7 +19,9 @@ const url = {
     addressUpdate: '/address/update',
     addressSetDefault: '/address/setDefault'
 };
-const host = 'http://rap2api.taobao.org/app/mock/3756/GET/';
+
+// const host = 'http://rap2api.taobao.org/app/mock/3756/GET/';
+const host = 'https://www.easy-mock.com/mock/5bcd99ebeed633374f5387f6/store';
 
 for (const key in url) {
     if (url.hasOwnProperty(key)) {

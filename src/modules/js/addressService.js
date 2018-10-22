@@ -15,7 +15,8 @@ class Address {
         return http.get(url.addressUpdate, inst)
     }
     static setDefault(id) {
-        return http.get(url.addressSetDefault, )
+        console.log(http.get(url.addressSetDefault ))
+        return http.get(url.addressSetDefault)
     }
 }
 

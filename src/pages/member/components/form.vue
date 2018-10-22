@@ -105,6 +105,7 @@ export default {
       }
     },
     setDefault() {
+      if(!this.id) this.id = parseInt(Math.random()*100000) 
       if(window.confirm('设为默认收货地址')) {
         this.$store.dispatch('setDefault', this.id)
       }
